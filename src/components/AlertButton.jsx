@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 function AlertButton(props) {
   return (
     <>
       <button className={'btn btn-' + props.color} onClick={props.onClick}>Alert Button</button>
     </>
-  );
+  )
 }
 
 AlertButton.propTypes = {
@@ -14,4 +14,4 @@ AlertButton.propTypes = {
   color: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'])
 }
 
-export default AlertButton;
+export default AlertButton

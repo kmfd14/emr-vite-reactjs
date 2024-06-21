@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 function AlertMessage(props) {
+  console.log("AlertMessage rendered", props)
   return (
     <>
       <div className='alert alert-primary alert-dismissible fade show' role='alert'> 
