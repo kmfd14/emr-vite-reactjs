@@ -27,10 +27,12 @@ import NavBar from './components/NavBar2';
 import Home from './Home';
 import About from './About2';
 import CityDetail from './views/City';
+import Sidebar from './components/Sidebar';
 
 const Layout = () => (
-  <div>
-    <NavBar />
+  <div className="d-flex flex-row">
+    <Sidebar />
+    {/* <NavBar /> */}
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about2" element={<About />} />
