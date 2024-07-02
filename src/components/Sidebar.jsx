@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { useState  } from 'react'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Sidebar = () => {
   const [activeLink, setActiveLink] = useState('/')
-  const location = useLocation()
 
   const handleLinkClick = (path) => {
     setActiveLink(path);
