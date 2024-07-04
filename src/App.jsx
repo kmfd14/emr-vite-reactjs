@@ -22,23 +22,25 @@
 //   )
 // }
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import About from './About2';
-import CityDetail from './views/City';
-import Sidebar from './components/Sidebar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './Home'
+import About from './About2'
+import CityDetail from './views/City'
+import Sidebar from './components/Sidebar'
 
 const Layout = () => (
-  <div className="d-flex flex-row">
-    <Sidebar />
-    {/* <NavBar /> */}
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about2" element={<About />} />
-      <Route path="/city" element={<CityDetail />} />
-    </Routes>
-  </div>
-);
+  <>
+    <div className="d-flex flex-row">
+      <Sidebar />
+      {/* <NavBar /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about2" element={<About />} />
+        <Route path="/city" element={<CityDetail />} />
+      </Routes>
+    </div>
+  </>
+)
 
 const App = () => (
   <Router>

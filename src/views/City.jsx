@@ -10,13 +10,20 @@ const CityDetail = () => {
 
   return (
     <>
-      <button className="btn btn-secondary" onClick={() => navigate(-1)}>Back</button>
-      <h1>City Detail</h1>
-      <p>City ID: {cityId}</p>
-      <p>City Name: {cityName}</p>
+      <div className="container mt-4">
+        <button className="btn btn-secondary mb-3" onClick={() => navigate(-1)}>Back</button>
+        <div className="card">
+          <div className="card-header">
+            <h2>City Detail</h2>
+          </div>
+          <div className="card-body">
+            <p><strong>City ID:</strong> {cityId}</p>
+            <p><strong>City Name:</strong> {cityName}</p>
+          </div>
+        </div>
+        </div>
     </>
   )
-
 }
 
 
