@@ -23,7 +23,6 @@
 // }
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar2';
 import Home from './Home';
 import About from './About2';
 import CityDetail from './views/City';
