@@ -1,14 +1,14 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+const cities = [
+  {id: 1, city: 'Quezon City'},
+  {id: 2, city: 'Manila'},
+  {id: 3, city: 'Makati'},
+  {id: 4, city: 'Taguig'},
+  {id: 5, city: 'Pasig'}
+]
 
 const Cities = () => {
-  const cities = [
-    {id: 1, city: 'Quezon City'},
-    {id: 2, city: 'Manila'},
-    {id: 3, city: 'Makati'},
-    {id: 4, city: 'Taguig'},
-    {id: 5, city: 'Pasig'}
-  ]
   const [selectedIndex, setSelectedIndex] = useState(-1) 
   const [selectedCity, setSelectedCity] = useState('')
   const navigate = useNavigate()
@@ -25,10 +25,10 @@ const Cities = () => {
 
   return (
     <>
-      <div className="d-flex flex-column align-items-center w-100">
+      <div className="container mt-4">
         <h5 className="text-center">This is from Cities.jsx file</h5>
         <h6 className="text-center">{selectedCity === '' ? 'No city selected.' : selectedCity + ' is selected.'}</h6>
-        <div className="d-flex justify-content-center w-100">
+        <div className="d-flex justify-content-center" style={{width: '100%'}} >
           {cities.length === 0 && <p>No cities to display.</p>}
           <ul className="list-group w-75">
             {cities.map((item, index) => (

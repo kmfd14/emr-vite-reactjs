@@ -21,7 +21,7 @@ const CityDetail = () => {
             <p><strong>City Name:</strong> {cityName}</p>
           </div>
         </div>
-        </div>
+      </div>
     </>
   )
 }
