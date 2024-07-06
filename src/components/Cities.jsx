@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+
 const cities = [
   {id: 1, city: 'Quezon City'},
   {id: 2, city: 'Manila'},
@@ -51,22 +52,3 @@ const Cities = () => {
 }
 
 export default Cities
-
-  //OLD CODE
-  // return (
-  //   <>
-  //     <h5>This is from List Group.jsx file</h5>
-  //     {cities.length === 0 && <p>No cities to display.</p>}
-  //     <ul className="list-group">
-  //       {cities.map((item, index) => (
-  //         <li 
-  //           className={ selectedIndex === index ? 'list-group-item active' : 'list-group-item' } 
-  //           key={index}
-  //           onClick={() => { setSelectedIndex(index)}}
-  //         >
-  //           {item}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </>
-  // )

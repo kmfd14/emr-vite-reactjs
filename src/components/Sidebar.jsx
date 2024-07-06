@@ -24,7 +24,6 @@ const Sidebar = () => {
     setDropdownOpen(!dropdownOpen)
   }
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -70,6 +69,15 @@ const Sidebar = () => {
               onClick={() => handleLinkClick('/about2')}
             >
               <FontAwesomeIcon icon='fa fa-city' /> {!isMinimized && 'About'}
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/cat"
+              className={`nav-link ${activeLink === '/cat' ? 'active' : ''} text-white`}
+              onClick={() => handleLinkClick('/cat')}
+            >
+              <FontAwesomeIcon icon='fa-solid fa-cat' /> {!isMinimized && 'Cats'}
             </Link>
           </li>
           {/* Other menu items */}

@@ -26,6 +26,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './Home'
 import About from './About2'
 import CityDetail from './views/City'
+import CatBreedDetail from './views/CatBreedDetails'
+import Cat from './Cat'
 import Sidebar from './components/Sidebar'
 
 const Layout = () => (
@@ -36,7 +38,9 @@ const Layout = () => (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about2" element={<About />} />
+        <Route path="/cat" element={<Cat />} />
         <Route path="/city" element={<CityDetail />} />
+        <Route path="/catBreed" element={<CatBreedDetail />} />
       </Routes>
     </div>
   </>
