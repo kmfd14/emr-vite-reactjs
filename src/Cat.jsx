@@ -55,12 +55,11 @@ const Cat = () => {
           </div>
         ) : (
           <div className="table-responsive w-100" style={{ maxHeight: '70vh' }}>
-            <table className="table table-hover table-bordered">
-              <thead className="table-light position-static">
+            <table className="table table-hover table-bordered" style={{height: '400px'}}>
+              <thead className="table-light text-center">
                 <tr>
-                  <th>#</th>
-                  <th>Breed Name</th>
-                  <th>Actions</th>
+                  <th scope="col">Breed Name</th>
+                  <th scope="col" style={{width: '100px'}}>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -70,9 +69,8 @@ const Cat = () => {
                     className={selectedBreedIndex === index + startIndex ? 'table-active' : ''}
                     onClick={() => handleCatClick(index + startIndex)}
                   >
-                    <td>{index + 1 + startIndex}</td>
                     <td>{item.name}</td>
-                    <td>
+                    <td className='d-flex flex-column justify-content-evenly'>
                       <button
                         className="btn btn-outline-secondary"
                         onClick={(e) => { e.stopPropagation(); handleCatBreedOpen(index + startIndex) }}
