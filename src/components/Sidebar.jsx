@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Sidebar = () => {
-  const [activeLink, setActiveLink] = useState('/')
+  const location = useLocation()
+  const [activeLink, setActiveLink] = useState(location.pathname)
   const [isMinimized, setIsMinimized] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
-  const dropdownRef = useRef(null) // Reference to the dropdown element
+  const dropdownRef = useRef(null)
 
   const handleLinkClick = (path) => {
     setActiveLink(path)
@@ -36,6 +37,10 @@ const Sidebar = () => {
       document.removeEventListener('click', handleClickOutside)
     }
   }, [])
+
+  useEffect(() => {
+    setActiveLink(location.pathname)
+  }, [location.pathname])
 
   return (
     <>
