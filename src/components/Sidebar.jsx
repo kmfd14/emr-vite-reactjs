@@ -78,11 +78,20 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <Link
-              to="/cat"
-              className={`nav-link ${activeLink === '/cat' ? 'active' : ''} text-white`}
-              onClick={() => handleLinkClick('/cat')}
+              to="/cats"
+              className={`nav-link ${activeLink === '/cats' ? 'active' : ''} text-white`}
+              onClick={() => handleLinkClick('/cats')}
             >
               <FontAwesomeIcon icon='fa-solid fa-cat' /> {!isMinimized && 'Cats'}
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/genders"
+              className={`nav-link ${activeLink === '/genders' ? 'active' : ''} text-white`}
+              onClick={() => handleLinkClick('/genders')}
+            >
+              <FontAwesomeIcon icon='fa-solid fa-venus-mars' /> {!isMinimized && 'Genders'}
             </Link>
           </li>
           {/* Other menu items */}

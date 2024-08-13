@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-const Cat = () => {
+const Cats = () => {
   const [catBreeds, setCatBreeds] = useState([])
   const [selectedBreedIndex, setSelectedBreedIndex] = useState(-1)
   const [selectedBreed, setSelectedBreed] = useState('')
@@ -31,7 +31,7 @@ const Cat = () => {
   }
 
   const handleCatBreedOpen = (index) => {
-    navigate(`/catBreed?id=${encodeURIComponent(catBreeds[index].id)}`)
+    navigate(`/cat?id=${encodeURIComponent(catBreeds[index].id)}`)
   }
 
   const handlePageChange = (pageNumber) => {
@@ -132,4 +132,4 @@ Pagination.propTypes = {
   onPageChange: PropTypes.func.isRequired,
 }
 
-export default Cat
+export default Cats
