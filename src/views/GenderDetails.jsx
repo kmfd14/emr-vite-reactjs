@@ -53,37 +53,42 @@ const GenderDetails = () => {
         <button className="btn btn-secondary mb-3" style={{width: '5rem'}} onClick={() => navigate(-1)}>Back</button>
         <button className="btn btn-primary mb-3" style={{width: '5rem'}} onClick={handleEditClick}>Edit</button>
       </div>
-      <div className="card">
-        <div className="card-header">
-          <h2>Gender Detail</h2>
-        </div>
-        <div className="card-body">
-          {isEditing ? (
-            <form onSubmit={handleFormSubmit}>
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="d-flex flex-row gap-2">
+      <div className="card" style={{height: '89vh'}}>
+        <form onSubmit={handleFormSubmit}>
+          <div className="card-header d-flex flex-row justify-content-between">
+            <h2>Gender Detail</h2>
+            {isEditing && (
+              <div className="d-flex flex-row gap-2 justify-content-center align-items-center">
                 <button type="button" className="btn btn-secondary mt-2 ml-2" style={{width: '5rem'}} onClick={() => setIsEditing(false)}>Cancel</button>
-                <button type="submit" className="btn btn-primary mt-2" style={{width: '5rem'}}>Save</button>
+                <button type="submit" className="btn btn-primary mt-2 bg-gradient-success" style={{width: '5rem'}}>Save</button>
               </div>
-            </form>
-          ) : (
-            <>
-              <p><strong>Gender ID:</strong> {gender.id}</p>
-              <p><strong>Name:</strong> {gender.name}</p>
-            </>
-          )}
-        </div>
+            )}
+          </div>
+          <div className="card-body">
+            {isEditing ? (
+              <div className="form-group row">
+                <label htmlFor="name" className="col-sm-2 col-form-label" style={{fontWeight: 'bold'}}>Name</label>
+                <div className="col-sm-10">
+                  <input
+                    type="text"
+                    className="form-control w-25"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    placeholder="Enter gender name"
+                    onChange={handleInputChange}
+                    required={true}
+                  />
+                </div>
+              </div>
+            ) : (
+              <>
+                <p><strong>Gender ID:</strong> {gender.id}</p>
+                <p><strong>Name:</strong> {gender.name}</p>
+              </>
+            )}
+          </div>
+        </form>
       </div>
     </div>
   )
