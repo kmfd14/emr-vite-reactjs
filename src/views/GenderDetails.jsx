@@ -1,6 +1,7 @@
 import { useSearchParams, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import AlertMessage from "../components/AlertMessage"
 
 const GenderDetails = () => {
   const navigate = useNavigate()
@@ -11,6 +12,7 @@ const GenderDetails = () => {
   const [formData, setFormData] = useState({
     name: ''
   })
+  const [alertVisible, setAlertVisibility] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,6 +43,7 @@ const GenderDetails = () => {
       const response = await axios.patch(`http://127.0.0.1:4040/gender/${genderId}`, { gender: formData })
       setGender(response.data) // Update the gender state with the new data
       setIsEditing(false) // Exit editing mode
+      setAlertVisibility(true)
       navigate(`/gender?id=${genderId}`) // Optionally navigate to the updated details
     } catch (error) {
       console.error('Error updating data:', error)
@@ -53,6 +56,12 @@ const GenderDetails = () => {
         <button className="btn btn-secondary mb-3" style={{width: '5rem'}} onClick={() => navigate(-1)}>Back</button>
         <button className="btn btn-primary mb-3" style={{width: '5rem'}} onClick={handleEditClick}>Edit</button>
       </div>
+      {alertVisible && 
+        <AlertMessage 
+          onClose={() => setAlertVisibility(false)} 
+          messageValue="Saved successfully!" 
+        />
+      }
       <div className="card" style={{height: '89vh'}}>
         <form onSubmit={handleFormSubmit}>
           <div className="card-header d-flex flex-row justify-content-between">
