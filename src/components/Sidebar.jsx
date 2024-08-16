@@ -62,6 +62,7 @@ const Sidebar = () => {
             <Link
               to="/"
               className={`nav-link ${activeLink === '/' ? 'active' : ''} text-white`}
+              style={{background:`${activeLink === '/' ? '#4FB06D' : ''}`}}
               onClick={() => handleLinkClick('/')}
             >
               <FontAwesomeIcon icon='fa fa-home' /> {!isMinimized && 'Home'}
@@ -71,6 +72,7 @@ const Sidebar = () => {
             <Link
               to="/about2"
               className={`nav-link ${activeLink === '/about2' ? 'active' : ''} text-white`}
+              style={{background:`${activeLink === '/about2' ? '#4FB06D' : ''}`}}
               onClick={() => handleLinkClick('/about2')}
             >
               <FontAwesomeIcon icon='fa fa-city' /> {!isMinimized && 'About'}
@@ -80,6 +82,7 @@ const Sidebar = () => {
             <Link
               to="/cats"
               className={`nav-link ${activeLink === '/cats' ? 'active' : ''} text-white`}
+              style={{background:`${activeLink === '/cats' ? '#4FB06D' : ''}`}}
               onClick={() => handleLinkClick('/cats')}
             >
               <FontAwesomeIcon icon='fa-solid fa-cat' /> {!isMinimized && 'Cats'}
@@ -89,6 +92,7 @@ const Sidebar = () => {
             <Link
               to="/genders"
               className={`nav-link ${activeLink === '/genders' ? 'active' : ''} text-white`}
+              style={{background:`${activeLink === '/genders' ? '#4FB06D' : ''}`}}
               onClick={() => handleLinkClick('/genders')}
             >
               <FontAwesomeIcon icon='fa-solid fa-venus-mars' /> {!isMinimized && 'Genders'}

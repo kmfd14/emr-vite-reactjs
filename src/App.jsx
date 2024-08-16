@@ -33,6 +33,8 @@ import CatBreedDetails from './views/CatBreedDetails'
 import Genders from './Genders'
 import GenderDetails from './views/GenderDetails'
 
+// #4FB06D MASTER COLOR
+
 const Layout = () => (
   <>
     <div className="d-flex flex-row">
