@@ -51,8 +51,8 @@ const GenderDetails = () => {
   }
 
   return (
-    <div className="container mt-4">
-      <div className="d-flex flex-row gap-2">
+    <div className="mx-auto" style={{width: '98%'}}>
+      <div className="d-flex flex-row gap-2 mx-2 mt-2">
         <button className="btn btn-secondary mb-3" style={{width: '5rem'}} onClick={() => navigate(-1)}>Back</button>
         <button className="btn btn-primary mb-3" style={{width: '5rem'}} onClick={handleEditClick}>Edit</button>
       </div>
@@ -62,38 +62,49 @@ const GenderDetails = () => {
           messageValue="Saved successfully!" 
         />
       }
-      <div className="card" style={{height: '89vh'}}>
-        <form onSubmit={handleFormSubmit}>
-          <div className="card-header d-flex flex-row justify-content-between">
-            <h2>Gender Detail</h2>
+      <div style={{height: '79vh'}}>
+        <form onSubmit={handleFormSubmit} className="gap-2">
+          <div className="d-flex justify-content-between align-items-center p-0 m-0 rounded" style={{height: '3rem', border: '2px #4FB06D solid', backgroundColor: '#4FB06D', color: 'white'}}>
+            <h2 className="mb-0 ps-1">Gender Details</h2>
             {isEditing && (
-              <div className="d-flex flex-row gap-2 justify-content-center align-items-center">
-                <button type="button" className="btn btn-secondary mt-2 ml-2" style={{width: '5rem'}} onClick={() => setIsEditing(false)}>Cancel</button>
-                <button type="submit" className="btn btn-primary mt-2 bg-gradient-success" style={{width: '5rem'}}>Save</button>
+              <div className="d-flex flex-row gap-2 align-items-center pe-1">
+                <button type="button" className="btn btn-secondary" style={{width: '5rem'}} onClick={() => setIsEditing(false)}>Cancel</button>
+                <button type="submit" className="btn btn-primary" style={{width: '5rem'}}>Save</button>
               </div>
             )}
           </div>
-          <div className="card-body">
+          <div className="border border-primary-subtle rounded mt-1 pb-1" style={{height: '70vh'}}>
             {isEditing ? (
-              <div className="form-group row">
-                <label htmlFor="name" className="col-sm-2 col-form-label" style={{fontWeight: 'bold'}}>Name</label>
-                <div className="col-sm-10">
-                  <input
-                    type="text"
-                    className="form-control w-25"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    placeholder="Enter gender name"
-                    onChange={handleInputChange}
-                    required={true}
-                  />
+              <>
+                <div className="form-group row ms-1 me-1 pt-1">
+                  <div className="row">
+                    <label htmlFor="name" className="col-sm-1 col-form-label" style={{fontWeight: 'bold'}}>Name</label>
+                    <div className="col-sm-3">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        placeholder="Enter gender name"
+                        onChange={handleInputChange}
+                        required={true}
+                      />
+                    </div>
+                    
+                  </div>
                 </div>
-              </div>
+              </>
             ) : (
               <>
-                <p><strong>Gender ID:</strong> {gender.id}</p>
-                <p><strong>Name:</strong> {gender.name}</p>
+                <div className="row ms-1 me-1 pt-1">
+                  <div className="row">
+                    <label htmlFor="name" className="col-sm-1 col-form-label" style={{ fontWeight: 'bold' }}>Name</label>
+                    <div className="col-sm-3">
+                      <span className="form-control-plaintext" style={{paddingLeft: '0.81rem', borderBottom: '1px black solid'}}>{gender.name}</span>
+                    </div>
+                  </div>
+                </div>
               </>
             )}
           </div>
