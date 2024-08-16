@@ -44,12 +44,12 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className={`d-flex flex-column flex-shrink-0 p-3 text-white bg-dark ${isMinimized ? 'sidebar-minimized' : ''}`} style={{ width: isMinimized ? '80px' : '280px', height: '100vh' }}>
-        <div className="d-flex justify-content-between align-items-center mb-3 mb-md-0">
+      <div className={`d-flex flex-column flex-shrink-0 p-3 text-white bg-dark ${isMinimized ? 'sidebar-minimized' : ''}`} style={{ width: isMinimized ? '6%' : '16%', height: '100vh' }}>
+        <div className="d-flex justify-content-center align-items-center">
           {!isMinimized && (
             <a href="/" className="d-flex align-items-center text-white text-decoration-none">
-              <svg className="bi me-2" width="40" height="32"><use xlinkHref="#bootstrap"></use></svg>
-              <span className="fs-4">Sidebar</span>
+              <svg className="bi me-2" width="15" height="32"><use xlinkHref="#bootstrap"></use></svg>
+              <span className="fs-4">Dashboard</span>
             </a>
           )}
           <button className={`btn btn-dark ${isMinimized ? 'm-auto' : ''}`} onClick={toggleSidebar}>
@@ -106,7 +106,7 @@ const Sidebar = () => {
             data-bs-toggle={!isMinimized ? 'dropdown' : undefined} 
             aria-expanded={dropdownOpen}
           >
-            <img src="https://github.com/mdo.png" alt="User Icon" width="32" height="32" className={`rounded-circle ${isMinimized ? 'm-auto' : 'me-2'}`} />
+            <img src="https://github.com/mdo.png" alt="User Icon" width="32" height="32" className={`rounded-circle ${isMinimized ? 'm-auto' : 'me-2'}`} style={{marginLeft: `${isMinimized ? '': '0.70rem'}`}} />
             {!isMinimized && <strong>mdo</strong>}
           </a>
           <ul className={`dropdown-menu dropdown-menu-dark text-small shadow ${dropdownOpen && 'show'}`} aria-labelledby="dropdownUser1" data-bs-popper={isMinimized ? 'static' : undefined}>
