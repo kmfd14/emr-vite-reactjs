@@ -44,7 +44,6 @@ const Cats = () => {
 
   return (
     <div className="container mt-4">
-      <h5 className="text-center">This is from Cat.jsx file</h5>
       <h6 className="text-center">
         {selectedBreed === '' ? 'No cat breed is selected.' : `${selectedBreed} is selected.`}
       </h6>
@@ -54,7 +53,7 @@ const Cats = () => {
             <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
-          <div className="table-responsive w-100" style={{ maxHeight: '70vh' }}>
+          <div className="table-responsive w-100 rounded shadow bg-body-tertiary" style={{ maxHeight: '71vh', border: 'solid 2px gray'}}>
             <table className="table table-hover table-bordered" style={{height: '400px'}}>
               <thead className="table-light text-center">
                 <tr>
@@ -102,7 +101,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   }
 
   return (
-    <nav>
+    <nav className='pt-4'>
       <ul className="pagination justify-content-center">
         <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
           <button className="page-link" onClick={() => onPageChange(currentPage - 1)}>
