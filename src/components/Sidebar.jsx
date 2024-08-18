@@ -90,6 +90,16 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <Link
+              to="/patients"
+              className={`nav-link ${activeLink === '/patients' ? 'active' : ''} text-white`}
+              style={{background:`${activeLink === '/patients' ? '#4FB06D' : ''}`}}
+              onClick={() => handleLinkClick('/patients')}
+            >
+              <FontAwesomeIcon icon='fa-solid fa-venus-mars' /> {!isMinimized && 'Patients'}
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
               to="/genders"
               className={`nav-link ${activeLink === '/genders' ? 'active' : ''} text-white`}
               style={{background:`${activeLink === '/genders' ? '#4FB06D' : ''}`}}

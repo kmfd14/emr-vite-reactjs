@@ -30,6 +30,8 @@ import Navbar from './components/NavBar'
 import CityDetail from './views/City'
 import Cats from './Cats'
 import CatBreedDetails from './views/CatBreedDetails'
+import Patients from './Patients'
+import PatientDetails from './views/PatientDetails'
 import Genders from './Genders'
 import GenderDetails from './views/GenderDetails'
 
@@ -48,6 +50,8 @@ const Layout = () => (
         <Route path="/city" element={<CityDetail />} />
         <Route path="/cats" element={<Cats />} />
         <Route path="/cat" element={<CatBreedDetails />} />
+        <Route path="/patients" element={<Patients />} />
+        <Route path="/patient" element={<PatientDetails />} />
         <Route path="/genders" element={<Genders />} />
         <Route path="/gender" element={<GenderDetails />} />
       </Routes>
