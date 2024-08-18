@@ -39,10 +39,11 @@ import GenderDetails from './views/GenderDetails'
 
 const Layout = () => (
   <>
+    {/* <div className="d-flex flex-row" style={{background: "url('./background.jpg') repeat center center rgba(255, 255, 255, 0.5)", backgroundSize: "200px 200px"}}> */}
     <div className="d-flex flex-row">
       <Sidebar />
       {/* <NavBar /> */}
-      <div className='w-100'>
+      <div className='w-100' >
         <Navbar />
         <Routes>
         <Route path="/" element={<Home />} />
