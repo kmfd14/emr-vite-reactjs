@@ -19,7 +19,7 @@ const GenderDetails = () => {
       axios.get(`http://127.0.0.1:4040/patient/${patientId}`)
         .then((response) => {
           setPatient(response.data)
-          setFormData({ first_name: response.data.first_name, last_name: response.data.last_name })
+          setFormData({ first_name: response.data.first_name,middle_name: response.data.middle_name, last_name: response.data.last_name })
         })
         .catch((error) => {
           console.error('Error fetching data:', error)
@@ -34,7 +34,7 @@ const GenderDetails = () => {
   }
 
   const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.first_name]: e.target.value })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleFormSubmit = async (e) => {
@@ -78,7 +78,7 @@ const GenderDetails = () => {
               <>
                 <div className="form-group row ms-1 me-1 pt-1">
                   <div className="row">
-                    <label htmlFor="first_name" className="col-sm-2 col-form-label" style={{fontWeight: 'bold'}}>First Name</label>
+                    <label htmlFor="first_name" className="col-sm-1 col-form-label" style={{fontWeight: 'bold'}}>First Name</label>
                     <div className="col-sm-3">
                       <input
                         type="text"
@@ -91,7 +91,20 @@ const GenderDetails = () => {
                         required={true}
                       />
                     </div>
-                    <label htmlFor="last_name" className="col-sm-2 col-form-label" style={{fontWeight: 'bold'}}>Last Name</label>
+                    <label htmlFor="middle_name" className="col-sm-1 col-form-label" style={{fontWeight: 'bold'}}>Middle Name</label>
+                    <div className="col-sm-3">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="middle_name"
+                        name="middle_name"
+                        value={formData.middle_name}
+                        placeholder="Enter patient middle name"
+                        onChange={handleInputChange}
+                        required={true}
+                      />
+                    </div>
+                    <label htmlFor="last_name" className="col-sm-1 col-form-label" style={{fontWeight: 'bold'}}>Last Name</label>
                     <div className="col-sm-3">
                       <input
                         type="text"
@@ -111,13 +124,17 @@ const GenderDetails = () => {
               <>
                 <div className="row ms-1 me-1 pt-1">
                   <div className="row">
-                    <label htmlFor="first_name" className="col-sm-2 col-form-label" style={{ fontWeight: 'bold' }}>First Name</label>
+                    <label htmlFor="first_name" className="col-sm-1 col-form-label" style={{ fontWeight: 'bold' }}>First Name</label>
                     <div className="col-sm-3">
                       <span className="form-control-plaintext" style={{paddingLeft: '0.81rem', borderBottom: '1px black solid'}}>{patient.first_name}</span>
                     </div>
-                    <label htmlFor="first_name" className="col-sm-2 col-form-label" style={{ fontWeight: 'bold' }}>First Name</label>
+                    <label htmlFor="middle_name" className="col-sm-1 col-form-label" style={{ fontWeight: 'bold' }}>Middle Name</label>
                     <div className="col-sm-3">
-                      <span className="form-control-plaintext" style={{paddingLeft: '0.81rem', borderBottom: '1px black solid'}}>{patient.first_name}</span>
+                      <span className="form-control-plaintext" style={{paddingLeft: '0.81rem', borderBottom: '1px black solid'}}>{patient.middle_name}</span>
+                    </div>
+                    <label htmlFor="last_name" className="col-sm-1 col-form-label" style={{ fontWeight: 'bold' }}>Last Name</label>
+                    <div className="col-sm-3">
+                      <span className="form-control-plaintext" style={{paddingLeft: '0.81rem', borderBottom: '1px black solid'}}>{patient.last_name}</span>
                     </div>
                   </div>
                 </div>
