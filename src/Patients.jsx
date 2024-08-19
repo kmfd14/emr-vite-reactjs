@@ -1,6 +1,7 @@
 import axios from 'axios'
+import moment from 'moment'
 import { useState, useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const Patients = () => {
@@ -8,8 +9,8 @@ const Patients = () => {
   const [selectedPatientIndex, setSelectedPatientIndex] = useState(-1)
   const [selectedPatient, setSelectedPatient] = useState('')
   const [loading, setLoading] = useState(true)
-  const [currentPage, setCurrentPage] = useState(1) // Pagination state
-  // const navigate = useNavigate()
+  const [currentPage, setCurrentPage] = useState(1) 
+  const navigate = useNavigate()
 
   const recordsPerPage = 20
 
@@ -30,9 +31,9 @@ const Patients = () => {
     setSelectedPatient(patients[index].first_name)
   }
 
-  // const handlePatientOpen = (index) => {
-  //   navigate(`/patient?id=${encodeURIComponent(patients[index].id)}`)
-  // }
+  const handlePatientOpen = (index) => {
+    navigate(`/patient?id=${encodeURIComponent(patients[index].id)}`)
+  }
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber)
@@ -55,35 +56,41 @@ const Patients = () => {
             <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
-          <div className="table-responsive w-100" style={{ maxHeight: '70vh', overflowY: 'auto' }}>
-            <table className="table table-hover table-bordered" style={{ height: '400px', tableLayout: 'fixed' }}>
-              <thead className="table-light text-center">
-                <tr style={{ height: '50px' }}>
-                  <th scope="col" style={{ width: '200px' }}>Patient Name</th>
-                  {/* <th scope="col" style={{ width: '100px' }}>Action</th> */}
-                </tr>
-              </thead>
-              <tbody>
-                {currentRecords.map((item, index) => (
-                  <tr
-                    key={index}
-                    className={selectedPatientIndex === index + startIndex ? 'table-active' : ''}
-                    onClick={() => handlePatientClick(index + startIndex)}
-                  >
-                    <td>{item.first_name + ' ' + item.last_name}</td>
-                    {/* <td className='d-flex flex-column justify-content-evenly'>
-                      <button
-                        className="btn btn-outline-secondary"
-                        onClick={(e) => { e.stopPropagation(); handlePatientOpen(index + startIndex) }}
-                      >
-                        Open
-                      </button>
-                    </td> */}
+          <>
+            <div className="table-responsive w-100" style={{ height: '400px', maxHeight: '70vh', overflowY: 'auto' }}>
+              <table className="table table-hover table-bordered" style={{ tableLayout: 'fixed' }}>
+                <thead className="table-light text-center">
+                  <tr style={{ height: '50px' }}>
+                    <th scope="col" style={{ width: '200px' }}>Patient Name</th>
+                    <th scope="col" style={{ width: '200px' }}>Birthdate</th>
+                    {/* <th scope="col" style={{ width: '100px' }}>Action</th> */}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {currentRecords.map((item, index) => (
+                    <tr
+                      key={index}
+                      className={selectedPatientIndex === index + startIndex ? 'table-active' : ''}
+                      style={{ cursor: 'pointer', backgroundColor: '#4FB06D' }}
+                      onClick={() => handlePatientClick(index + startIndex)}
+                      onDoubleClick={(e) => { e.stopPropagation(); handlePatientOpen(index + startIndex) }}
+                    >
+                      <td>{item.first_name + ' ' + item.last_name}</td>
+                      <td style={{textAlign: 'center'}}>{moment(item.birthdate).format('MMMM Do, YYYY')}</td>
+                      {/* <td className='d-flex flex-column justify-content-evenly'>
+                        <button
+                          className="btn btn-outline-secondary"
+                          onClick={(e) => { e.stopPropagation(); handlePatientOpen(index + startIndex) }}
+                        >
+                          Open
+                        </button>
+                      </td> */}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
       <Pagination
